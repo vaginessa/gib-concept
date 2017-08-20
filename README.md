@@ -38,3 +38,7 @@ In order to not recieve prompts to click on the "install" (apk) or "reboot to re
 
 ### Storage
 Up to the user, but there will be a internal && external storage check and they can then choose whether they want the installation package temp location and whether to delete it after install
+
+### Theming
+I might do "in app theming" but substratum does a good job.
+Unless no major themes support, i don't think ill implement
