@@ -35,3 +35,6 @@ simple enough
 
 ### Annoying prompts
 In order to not recieve prompts to click on the "install" (apk) or "reboot to recovery" (zip) everytime you push out a update, there has to be root to automate this "installation process"
+
+### Storage
+Up to the user, but there will be a internal && external storage check and they can then choose whether they want the installation package temp location and whether to delete it after install
