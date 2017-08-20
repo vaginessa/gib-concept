@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Drawer items -->
+    <string-array name="drawer_items">
+        <item>Dashboard</item>
+    </string-array>
+    <!-- Dynamically generate drawer menu items using this array-->
+
+</resources>
