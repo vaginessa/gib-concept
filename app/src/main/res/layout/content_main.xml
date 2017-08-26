@@ -7,5 +7,10 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="io.github.alamo18.updater.MainActivity"
     tools:showIn="@layout/app_bar_main">
-
+    <com.yinglan.shadowimageview.ShadowImageView
+        android:id="@+id/shadow"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:shadowRound="20dp"
+        app:shadowSrc="@drawable/pimage" />
 </android.support.constraint.ConstraintLayout>
