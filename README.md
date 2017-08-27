@@ -61,10 +61,16 @@ After retrieving the updated package using the async task, we shall now install.
 A small note to kernel devs, you can directly upload your dtb without having to place in anykernel if you are not distributing via img. The update process will automatically patch the zimage for you
 
 ## Fully automated shit
-If you push out updates every 5 mins, you probably won't want your users to go in the app and verify every install. This is why there is Advanced CI that automates bleeding edge build installation process
+If you push out updates every 5 mins, you probably won't want your users to go in the app and verify every install. This is why there is Advanced CI that automates bleeding edge build installation process.
 At a very small cost, there will be a small background process checking for updates at intervals defined by the user
 ```sh
-if (there is a update), update();
+//parse Json
+//var update is a bool that, will be = true whenever the $newVersion > $oldVersion
+if (!update){
+//do nothing
+} else { 
+update(); // then set update = false
+}
 ```
 simple enough
 
