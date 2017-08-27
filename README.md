@@ -18,16 +18,16 @@ You need to gib some metadata on how you want things to be placed in your ```upd
 Package type, and other crap is autodetected
 
 - **Types**
-- 
+
 types = [zip, dtb, img, apk]
 
 If you would like to overide, use ```{ "type": types[1,2,3 or 4] }```
 
 - **Target**
 
-Target refers to the DEVICE CODENAME if applicable
+Target refers to the DEVICE CODENAME
 
-if none, use ```{ "target":generic }```
+if applicable to all devices, use ```{ "target":generic }```
 
 More variables will be added in future, under the properties object in the json
 However, not all stuff are controlled by you. Update check intervals are defined by your users in settings so deal with it
