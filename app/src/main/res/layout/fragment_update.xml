@@ -72,13 +72,6 @@
 
             </android.support.v7.widget.CardView>
 
-            <com.yinglan.shadowimageview.ShadowImageView
-                android:id="@+id/shadow"
-                android:layout_width="400dp"
-                android:layout_height="280dp"
-                app:shadowRound="20dp"
-                app:shadowSrc="@drawable/pimage" />
-
         </LinearLayout>
     </ScrollView>
 </android.support.v4.widget.SwipeRefreshLayout>
