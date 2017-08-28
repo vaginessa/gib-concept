@@ -1,9 +1,10 @@
 # Updater
-A simple updater manager personal/small projects with advanced ci integration. There won't be a need to 
+A simple updater manager personal/small projects with advanced ci integration. There won't be a need to messily push your ci/apk builds via telegram anymore and gib installation convienience
 
 # Features
 ### User
 - Multi-thread download
+- Convinient af lmao
 - Advanced CI integration
 - Battery efficient wakelock
 - Tunables for every aspect (update check intervals and more)
