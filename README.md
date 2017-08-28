@@ -1,5 +1,26 @@
 # Updater
-A simple update + credits template for whatever your're doing (plus feedback xD)
+A simple updater manager personal/small projects with advanced ci integration. There won't be a need to 
+
+# Features
+### User
+- Multi-thread download
+- Advanced CI integration
+- Battery efficient wakelock
+- Tunables for every aspect (update check intervals and more)
+- Nice UI
+- Automated flashing/installs
+- Notifications
+
+### Developers
+- Easy integration with buildbots/slaves
+- Your own prefered hosting
+- Easy pushing of OTA (JSON can be updated this script)
+- Customisable page for your own work
+- Stable/ no downtimes because there is NO major hosting infrastructure implemented
+
+# Home/Dashboard
+Allows sorting of files per device, file type and popularity
+Allow searching of devs
 
 # Customisation
 You need to gib some metadata on how you want things to be placed in your ```update.json```. For instance, you would have to define your name, desc and url and **build number**. 
@@ -77,14 +98,15 @@ simple enough
 ### Json stuff
 In JSON, values must be one of the following data types:
 
-a string
-a number
-a JSON object
-an array
-a boolean
-null
+- a string
+- a number
+- a JSON object
+- an array
+- a boolean
+- null
 
 so yea make sure you dont give some invalid shit like a function or your json will fail parsing and no update will be recieved. Though, if things fail, a email will be sent for logging and crabs.
+
 ### Annoying prompts
 In order to not recieve prompts to click on the "install" (apk) or "reboot to recovery" (zip) everytime you push out a update, there has to be root to automate this "installation process"
 
