@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <!-- Use nice name and welcomeback toolbar in future for Main -->
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.update.UpdateActivity"
             android:label="@string/updater"
             android:theme="@style/AppTheme">
             <intent-filter>

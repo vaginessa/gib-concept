@@ -1,4 +1,4 @@
-package io.github.alamo18.updater;
+package io.github.alamo18.updater.ui.update;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,13 +13,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity
+import io.github.alamo18.updater.R;
+
+public class UpdateActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_update);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
