@@ -1,4 +1,4 @@
-package io.github.alamo18.updater.ui.update;
+package io.github.alamo18.updater.ui.home.update;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

@@ -11,16 +11,17 @@
         android:theme="@style/AppTheme">
         <!-- Use nice name and welcomeback toolbar in future for Main -->
         <activity
-            android:name=".ui.update.UpdateActivity"
-            android:label="@string/updater">
+            android:name=".ui.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.store.StoreActivity">
+        <activity android:name=".ui.home.update.UpdateActivity"
+            android:label="@string/updater">
         </activity>
+
     </application>
 
 </manifest>
