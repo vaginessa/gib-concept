@@ -32,4 +32,5 @@ dependencies {
 
     implementation 'org.cryse.widget:persistentsearchview:1.0.4@aar'
     implementation 'com.android.volley:volley:1.0.0'
+    implementation 'com.solera.defrag:defrag:1.2.0'
 }
