@@ -1,4 +1,4 @@
-# Updater
+# Gib update(r)
 A simple updater manager personal/small projects with advanced ci integration. There won't be a need to messily push your ci/apk builds via telegram anymore and gib installation convienience
 
 # Features
