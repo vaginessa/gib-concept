@@ -2,9 +2,6 @@
 <resources>
 
     <!-- Drawer items -->
-    <string-array name="drawer_items">
-        <item>Dashboard</item>
-    </string-array>
     <!-- Dynamically generate drawer menu items using this array-->
 
 </resources>
