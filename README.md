@@ -24,15 +24,15 @@ Allows sorting of files per device, file type and popularity
 Allow searching of devs
 
 # Customisation
-You need to gib some metadata on how you want things to be placed in your ```update.json```. For instance, you would have to define your name, desc and url and **build number**. 
-```
+You need to gib some metadata on how you want things to be placed in your `update.json`. For instance, you would have to define your name, desc and url and **build number**. 
+```json
 { 
-"build" : 365,
-"name":"Pizza Kernel",
-"desc":"A simple kernel without all the junk features",
+"build": 365,
+"name": "Pizza Kernel",
+"desc": "A simple kernel without all the junk features",
 "url": "http://vulcan.droidthug.me/firmware/7.x-mido-firmware-230717.zip",
 "properties": {
-"target": ["hlte", "hltexx", "hltemo"],
+        "target": ["hlte", "hltexx", "hltemo"],
     }
 }
 ```
@@ -43,13 +43,13 @@ Package type, and other crap is autodetected
 
 types = [zip, dtb, img, apk]
 
-If you would like to overide, use ```{ "type": types[1,2,3 or 4] }```
+If you would like to overide, use `{ "type": types[1,2,3 or 4] }`
 
 - **Target**
 
 Target refers to the DEVICE CODENAME
 
-if applicable to all devices, use ```{ "target":generic }```
+if applicable to all devices, use `{ "target":generic }`
 
 More variables will be added in future, under the properties object in the json
 However, not all stuff are controlled by you. Update check intervals are defined by your users in settings so deal with it
@@ -63,14 +63,14 @@ Soz, the workflow works like dees:
 2. Goes to my updater json
 3. Paste my new file *direct* download link, build number (365) and build name(versionthreehundredsixtyfive)
 4. State more stuff in json and save
-5. User's device checks for update. If build number previously was 364, and now the device finds that ```$newVersion > 364```, then will automatically download and update. Just make sure your build number is not a string and is a data types like (float, int) and build number and your build number is not negative incremental. Any of such exceptions, you'll have to modify the code. But, try to keep the (displayed to user) build name a ```String``` and (displayed to internal update checker) build number a ```int```, ```double``` or ```float```
+5. User's device checks for update. If build number previously was 364, and now the device finds that `$newVersion > 364`, then will automatically download and update. Just make sure your build number is not a string and is a data types like (float, int) and build number and your build number is not negative incremental. Any of such exceptions, you'll have to modify the code. But, try to keep the (displayed to user) build name a `String` and (displayed to internal update checker) build number a `int`, `double` or `float`
 
 For lazy ppl or those with CI builds, there will be a script to help you automatically generate the json. Just adapt the function from the script and execute it on every build, easy shit. 
 
 For those with webserver and a domain, you can do your own hosting yay, everything works the same
 
 ## Repository
-You can upload your sauce here in this repo [here](https://github.com/updater-repo) if you would like your module to be featured in the app. Builds + sauce can also be in the repo, but make sure there is a ```update.json``` somewhere.
+You can upload your sauce here in this repo [here](https://github.com/updater-repo) if you would like your module to be featured in the app. Builds + sauce can also be in the repo, but make sure there is a `update.json` somewhere.
 You will have to send a pull to the main repo, defining your update json location
 
 # Methods
@@ -85,10 +85,10 @@ A small note to kernel devs, you can directly upload your dtb without having to 
 ## Fully automated shit
 If you push out updates every 5 mins, you probably won't want your users to go in the app and verify every install. This is why there is Advanced CI that automates bleeding edge build installation process.
 At a very small cost, there will be a small background process checking for updates at intervals defined by the user
-```sh
-//parse Json
-//var update is a bool that, will be = true whenever the $newVersion > $oldVersion
-if (update){
+```java
+// parse JSON
+// var update is a bool that, will be = true whenever the $newVersion > $oldVersion
+if (update) {
     update(); // then set update = false
 }
 ```
