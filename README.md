@@ -88,10 +88,8 @@ At a very small cost, there will be a small background process checking for upda
 ```sh
 //parse Json
 //var update is a bool that, will be = true whenever the $newVersion > $oldVersion
-if (!update){
-//do nothing
-} else { 
-update(); // then set update = false
+if (update){
+    update(); // then set update = false
 }
 ```
 simple enough
