@@ -19,7 +19,7 @@ import java.util.Arrays;
 import io.github.alamo18.updater.R;
 import io.github.alamo18.updater.model.json.JSONResponse;
 import io.github.alamo18.updater.model.json.Repo;
-import io.github.alamo18.updater.ui.adapter.DataAdapter;
+import io.github.alamo18.updater.ui.adapter.PackageAdapter;
 import io.github.alamo18.updater.utils.RequestInterface;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,7 +36,7 @@ public class TestRepoListActivity extends AppCompatActivity{
     private SpaceNavigationView spaceNavigationView;
     private RecyclerView recyclerView;
     private ArrayList<Repo> data;
-    private DataAdapter adapter;
+    private PackageAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +60,8 @@ public class TestRepoListActivity extends AppCompatActivity{
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
+        adapter = new PackageAdapter();
+        recyclerView.setAdapter(adapter);
         loadJSON();
     }
 
@@ -106,16 +108,16 @@ public class TestRepoListActivity extends AppCompatActivity{
         call.enqueue(new Callback<JSONResponse>() {
             @Override
             public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
-
                 JSONResponse jsonResponse = response.body();
                 data = new ArrayList<>(Arrays.asList(jsonResponse != null ? jsonResponse.getRepolist() : new Repo[0]));
-                adapter = new DataAdapter(data);
-                recyclerView.setAdapter(adapter);
+                adapter.setRepoList(data);
+                adapter.setLoading(false);
             }
 
             @Override
             public void onFailure(Call<JSONResponse> call, Throwable died) {
-                Log.d("Error", died.getMessage());
+                adapter.setError(getString(R.string.cannot_load_packages));
+                adapter.setLoading(false);
             }
         });
     }

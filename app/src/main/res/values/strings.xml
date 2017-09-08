@@ -2,4 +2,6 @@
     <string name="app_name">Gib</string>
 
     <string name="updater">Updater</string>
+    <string name="loading_packages">Gibbing updates…</string>
+    <string name="cannot_load_packages">Cannot gib updates. So sed</string>
 </resources>
