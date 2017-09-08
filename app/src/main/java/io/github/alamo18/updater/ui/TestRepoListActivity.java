@@ -5,13 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.widget.Toast;
-
-import com.luseen.spacenavigation.SpaceItem;
-import com.luseen.spacenavigation.SpaceNavigationView;
-import com.luseen.spacenavigation.SpaceOnClickListener;
-import com.luseen.spacenavigation.SpaceOnLongClickListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +26,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TestRepoListActivity extends AppCompatActivity{
 
-    private SpaceNavigationView spaceNavigationView;
     private RecyclerView recyclerView;
     private ArrayList<Repo> data;
     private PackageAdapter adapter;
@@ -45,13 +37,6 @@ public class TestRepoListActivity extends AppCompatActivity{
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        spaceNavigationView = findViewById(R.id.space);
-        spaceNavigationView.initWithSaveInstanceState(savedInstanceState);
-        spaceNavigationView.addSpaceItem(new SpaceItem("Store", R.drawable.store));
-        spaceNavigationView.addSpaceItem(new SpaceItem("Installed", R.drawable.account));
-        spaceNavigationView.shouldShowFullBadgeText(true);
-        spaceNavigationView.setCentreButtonIconColorFilterEnabled(false);
-        setBottomNavListeners();
         initViews();
     }
 
@@ -63,38 +48,6 @@ public class TestRepoListActivity extends AppCompatActivity{
         adapter = new PackageAdapter();
         recyclerView.setAdapter(adapter);
         loadJSON();
-    }
-
-    private void setBottomNavListeners() {
-        spaceNavigationView.setSpaceOnClickListener(new SpaceOnClickListener() {
-            @Override
-            public void onCentreButtonClick() {
-                Log.d("onCentreButtonClick ", "onCentreButtonClick");
-                spaceNavigationView.shouldShowFullBadgeText(true);
-            }
-
-            @Override
-            public void onItemClick(int itemIndex, String itemName) {
-                Log.d("onItemClick ", "" + itemIndex + " " + itemName);
-            }
-
-            @Override
-            public void onItemReselected(int itemIndex, String itemName) {
-                Log.d("onItemReselected ", "" + itemIndex + " " + itemName);
-            }
-        });
-
-        spaceNavigationView.setSpaceOnLongClickListener(new SpaceOnLongClickListener() {
-            @Override
-            public void onCentreButtonLongClick() {
-                Toast.makeText(TestRepoListActivity.this, "don't kill the fab plz", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onItemLongClick(int itemIndex, String itemName) {
-                Toast.makeText(TestRepoListActivity.this, itemIndex + " " + itemName +" says ouch" , Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     private void loadJSON(){

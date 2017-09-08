@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import org.jetbrains.annotations.NotNull;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.alamo18.updater.R;
@@ -24,5 +26,10 @@ public class StoreFragment extends Fragment {
         ButterKnife.bind(this, view);
         // add stuff
         return view;
+    }
+
+    @NotNull
+    public static StoreFragment newInstance() {
+        return new StoreFragment();
     }
 }

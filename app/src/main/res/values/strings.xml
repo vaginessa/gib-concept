@@ -4,4 +4,7 @@
     <string name="updater">Updater</string>
     <string name="loading_packages">Gibbing updates…</string>
     <string name="cannot_load_packages">Cannot gib updates. So sed</string>
+    <string name="navigation_home">Home</string>
+    <string name="navigation_account">Account</string>
+    <string name="navigation_store">Store</string>
 </resources>
