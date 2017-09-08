@@ -16,6 +16,8 @@ class NavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSe
     lateinit var toolbar: Toolbar
     lateinit var bottomNav: BottomNavigationView
 
+    var selected = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nav)
@@ -33,6 +35,8 @@ class NavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSe
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        if (selected == item.itemId) return false
+        selected = item.itemId
         title = item.title
         showFragment(getFragment(item))
         return true
