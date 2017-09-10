@@ -6,15 +6,14 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <Button
+    <TextView
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="230dp"
         android:layout_gravity="center"
-        android:text="Button1"
-        android:textColor="@android:color/white"
-        android:background="@drawable/button_normal"
+        android:text="Fragment Installed :3"
+        android:textSize="32dp"
         android:focusable="true"/>
 
     <Button
@@ -23,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:text="Button2"
+        android:text="Blubber #3"
         android:textColor="@android:color/white"
         android:background="@drawable/button_normal"
         android:focusable="true"/>
