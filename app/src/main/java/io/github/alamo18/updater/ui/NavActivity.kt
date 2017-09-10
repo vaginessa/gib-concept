@@ -1,11 +1,10 @@
 package io.github.alamo18.updater.ui
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import io.github.alamo18.updater.R
@@ -13,7 +12,6 @@ import io.github.alamo18.updater.ui.fragment.InstalledFragment
 import io.github.alamo18.updater.ui.fragment.NavFragment
 import io.github.alamo18.updater.ui.fragment.PackageListFragment
 import io.github.alamo18.updater.ui.fragment.StoreFragment
-
 
 class NavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemReselectedListener {
 
@@ -63,7 +61,8 @@ class NavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSe
         }
     }
 
-    private fun getFragment(item: MenuItem) = when (item.itemId) {
+    private fun getFragment(item: MenuItem): Fragment = when (item.itemId) {
+        // Packagelistfragment is just a repo parser test for nao, the real one will be HomeFragment
         R.id.navigation_home -> PackageListFragment.newInstance()
         R.id.navigation_store -> StoreFragment.newInstance()
         R.id.navigation_installed -> InstalledFragment.newInstance()
