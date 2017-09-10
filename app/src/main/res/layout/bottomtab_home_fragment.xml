@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:foreground="?attr/selectableItemBackground"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <TextView
@@ -25,5 +26,7 @@
         android:text="Blubber"
         android:textColor="@android:color/white"
         android:background="@drawable/button_normal"
-        android:focusable="true"/>
+        android:focusable="true"
+        android:clickable="true"/>
+
 </LinearLayout>
