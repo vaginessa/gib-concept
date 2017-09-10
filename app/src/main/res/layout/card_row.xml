@@ -32,19 +32,19 @@
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Title" />
+                tools:text="Name" />
 
             <TextView
                 android:id="@+id/json_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Location" />
+                tools:text="Link" />
 
             <TextView
                 android:id="@+id/dev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Dope developer" />
+                tools:text="Dev" />
         </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>
