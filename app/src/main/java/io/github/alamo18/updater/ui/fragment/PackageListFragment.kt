@@ -1,7 +1,9 @@
 package io.github.alamo18.updater.ui.fragment
 
 import android.os.Bundle
+import android.os.Handler
 import android.support.v4.app.Fragment
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -20,10 +22,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 import kotlin.collections.ArrayList
 
+
 class PackageListFragment : Fragment() {
 
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: PackageAdapter
+    lateinit var swiperefresh: SwipeRefreshLayout
 
     private val packageList = ArrayList<Repo>()
 
@@ -36,6 +40,7 @@ class PackageListFragment : Fragment() {
     private fun bindViews(layout: View, savedInstanceState: Bundle?) {
         recyclerView = layout.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
+        swiperefresh = layout.findViewById(R.id.refresh)
         adapter = PackageAdapter()
         recyclerView.adapter = adapter
 
@@ -50,6 +55,13 @@ class PackageListFragment : Fragment() {
         super.onSaveInstanceState(outState)
 
         outState.putParcelableArrayList("packageList", packageList)
+    }
+
+    fun onRefresh() {
+        Handler().postDelayed(Runnable{
+            loadJSON()
+            swiperefresh.setRefreshing(false)
+        }, 500)
     }
 
     private fun loadJSON() {
