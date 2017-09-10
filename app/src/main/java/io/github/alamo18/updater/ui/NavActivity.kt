@@ -5,17 +5,17 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import io.github.alamo18.updater.R
 import io.github.alamo18.updater.ui.fragment.InstalledFragment
+import io.github.alamo18.updater.ui.fragment.NavFragment
 import io.github.alamo18.updater.ui.fragment.PackageListFragment
 import io.github.alamo18.updater.ui.fragment.StoreFragment
-import android.view.MenuInflater
 
 
-
-class NavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+class NavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemReselectedListener {
 
     lateinit var toolbar: Toolbar
     lateinit var bottomNav: BottomNavigationView
@@ -26,16 +26,26 @@ class NavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSe
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nav)
 
-        initViews()
+        initViews(savedInstanceState)
     }
 
-    private fun initViews() {
+    private fun initViews(savedInstanceState: Bundle?) {
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         bottomNav = findViewById(R.id.bottomNav)
         bottomNav.setOnNavigationItemSelectedListener(this)
-        onNavigationItemSelected(bottomNav.menu.getItem(0))
+        bottomNav.setOnNavigationItemReselectedListener(this)
+        if (savedInstanceState == null)
+            onNavigationItemSelected(bottomNav.menu.getItem(0))
+        else
+            selected = savedInstanceState.getInt("selected")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putInt("selected", selected)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -46,6 +56,13 @@ class NavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSe
         return true
     }
 
+    override fun onNavigationItemReselected(item: MenuItem) {
+        val fragment = supportFragmentManager.findFragmentByTag("content")
+        if (fragment != null && fragment is NavFragment) {
+            fragment.onReselected()
+        }
+    }
+
     private fun getFragment(item: MenuItem) = when (item.itemId) {
         R.id.navigation_home -> PackageListFragment.newInstance()
         R.id.navigation_store -> StoreFragment.newInstance()
@@ -54,6 +71,9 @@ class NavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSe
     }
 
     fun showFragment(fragment: Fragment) {
+        if (fragment !is NavFragment)
+            throw IllegalArgumentException("Child fragment must implement NavFragment")
+
         supportFragmentManager.beginTransaction()
                 .replace(R.id.container, fragment, "content")
                 .commit()

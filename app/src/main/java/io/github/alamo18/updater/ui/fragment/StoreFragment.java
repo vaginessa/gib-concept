@@ -17,7 +17,7 @@ import io.github.alamo18.updater.R;
  * Created by alamo with his pizza on 7/9/2017.
  */
 
-public class StoreFragment extends Fragment {
+public class StoreFragment extends Fragment implements NavFragment {
     @BindView(R.id.button1) Button button1;
     @BindView(R.id.button2) Button button2;
 
@@ -26,6 +26,11 @@ public class StoreFragment extends Fragment {
         ButterKnife.bind(this, view);
         // add stuff
         return view;
+    }
+
+    @Override
+    public void onReselected() {
+
     }
 
     @NotNull

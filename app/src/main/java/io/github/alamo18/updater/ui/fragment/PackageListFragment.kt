@@ -2,6 +2,7 @@ package io.github.alamo18.updater.ui.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -20,9 +21,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 import kotlin.collections.ArrayList
 
-class PackageListFragment : Fragment() {
+class PackageListFragment : Fragment(), NavFragment {
 
-    lateinit var recyclerView: RecyclerView
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+    private lateinit var recyclerView: RecyclerView
     lateinit var adapter: PackageAdapter
 
     private val packageList = ArrayList<Repo>()
@@ -33,11 +35,17 @@ class PackageListFragment : Fragment() {
         return view
     }
 
+
     private fun bindViews(layout: View, savedInstanceState: Bundle?) {
+        swipeRefreshLayout = layout.findViewById(R.id.swipeRefreshLayout)
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent)
         recyclerView = layout.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
         adapter = PackageAdapter()
         recyclerView.adapter = adapter
+        swipeRefreshLayout.setOnRefreshListener {
+            loadJSON()
+        }
 
         if (savedInstanceState == null) {
             loadJSON()
@@ -63,13 +71,14 @@ class PackageListFragment : Fragment() {
         call.enqueue(object : Callback<JSONResponse> {
             override fun onResponse(call: Call<JSONResponse>, response: Response<JSONResponse>) {
                 val jsonResponse = response.body()
-                val data = ArrayList(Arrays.asList(*if (jsonResponse != null) jsonResponse.repolist else arrayOfNulls<Repo>(0)))
+                val data = ArrayList(Arrays.asList(*if (jsonResponse != null) jsonResponse.repolist else arrayOf<Repo>()))
                 onPackageListLoaded(data)
             }
 
             override fun onFailure(call: Call<JSONResponse>, died: Throwable) {
                 adapter.error = getString(R.string.cannot_load_packages)
                 adapter.loading = false
+                swipeRefreshLayout.isRefreshing = false
             }
         })
     }
@@ -79,6 +88,11 @@ class PackageListFragment : Fragment() {
         packageList.addAll(data)
         adapter.setRepoList(packageList)
         adapter.loading = false
+        swipeRefreshLayout.isRefreshing = false
+    }
+
+    override fun onReselected() {
+        recyclerView.smoothScrollToPosition(0)
     }
 
     companion object {
