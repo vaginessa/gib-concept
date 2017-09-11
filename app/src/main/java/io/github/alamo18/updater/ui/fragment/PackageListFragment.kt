@@ -64,7 +64,7 @@ class PackageListFragment : Fragment(), NavFragment {
     private fun loadJSON() {
         val retrofit = Retrofit.Builder()
                 // repo json
-                .baseUrl("https://gist.githubusercontent.com")
+                .baseUrl("https://raw.githubusercontent.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         val request = retrofit.create(RequestInterface::class.java)
