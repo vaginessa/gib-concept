@@ -1,0 +1,29 @@
+{
+  "repolist":[
+    {
+      "name":"Pizza kernel",
+      "jsonurl":"google.com",
+      "dev":"alamo"
+    },
+    {
+      "name":"Luncher",
+      "jsonurl":"google.com",
+      "dev":"scapedelete"
+    },
+    {
+      "name":"Lspeed",
+      "jsonurl":"google.com",
+      "dev":"paget96"
+    },
+    {
+      "name":"gummy bears",
+      "jsonurl":"kek.com",
+      "dev":"santa"
+    },
+    {
+      "name":"Subsz",
+      "jsonurl":"google.com",
+      "dev":"nick"
+    }
+  ]
+}
