@@ -21,6 +21,11 @@
       "dev":"santa"
     },
     {
+      "name":"hi mom",
+      "jsonurl":"hihi.com",
+      "dev":"me"
+    },
+    {
       "name":"Subsz",
       "jsonurl":"google.com",
       "dev":"nick"
