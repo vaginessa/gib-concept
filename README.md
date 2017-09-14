@@ -5,6 +5,12 @@ A simple updater manager personal/small projects with advanced ci integration. T
 # Features
 ### User
 - Multi-thread download
+1. Multi thread/connection downloads: In a conventional download we don't completely utilize our bandwidth. With multiple connections there is always one thread which is getting data thus minimizing the wait period between data packets. This doesn't mean that gib will be able to download faster than what your ISP permits.
+
+2. You don't have to worry about internet getting cut or app getting closed while downloading. Gib will simply continue downloading from the previous byte
+
+3. MD5 checks: Your awesome dev must include a hash value for the download in the json. Gib will then automatically perform a md5 hash check and verify the integrity of file (whether or not it got corrupted somehow)
+
 - Convinient af lmao
 - Advanced CI integration
 - Battery efficient wakelock
