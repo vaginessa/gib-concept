@@ -121,3 +121,6 @@ Unless no major themes support, i don't think ill implement
 Send a pull if you spot an issue,if possible, instead of just waiting for me to fix it. Make sure you indicate your pull before working on it in the "issues" tab, i don't wanna waste your time. 
 
 Soz anyways, you have any features/update_package type requests, feel free to voice them. Also, gib some feedback too xD 
+
+### Compilation
+If you would like to compile gib, go ahead, but you'll have to remove firebase dependencies or include your own google-services.json in the root of the /app folder
