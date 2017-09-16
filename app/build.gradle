@@ -32,5 +32,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.dewarder:katana:1.0.0'
+    implementation 'com.daasuu:EasingInterpolator:1.0.0'
+    implementation 'com.labo.kaji:swipeawaydialog:0.1.1'
+    implementation 'com.github.esafirm:RxDownloader:1.0.1'
 
 }
