@@ -1,17 +1,14 @@
 # Gib update(r)
-A simple updater manager personal/small projects with advanced ci integration. There won't be a need to messily push your ci/apk builds via telegram anymore and gib installation convienience
+A simple updater manager personal/small projects with advanced CI integration. There won't be a need to messily push your CI/APK builds via Telegram anymore and gib installation convienience.
 
 [![Concept](https://github.com/alamo18/gib/blob/master/art/nude.jpg)](https://alamo18.github.io/gumball/)
 # Features
 ### User
 - Multi-thread download
-1. Multi thread/connection downloads: In a conventional download we don't completely utilize our bandwidth. With multiple connections there is always one thread which is getting data thus minimizing the wait period between data packets. This doesn't mean that gib will be able to download faster than what your ISP permits.
-
-2. Breakpoint-resume: You don't have to worry about internet getting cut or app getting closed while downloading. Gib will simply continue downloading from the previous byte
-
-3. MD5 checks: Your awesome dev must include a hash value for the download in the json. Gib will then automatically perform a md5 hash check and verify the integrity of file (whether or not it got corrupted somehow)
-
-- Convinient af lmao
+  - Multi thread/connection downloads: In a conventional download we don't completely utilize our bandwidth. With multiple connections there is always one thread which is getting data thus minimizing the wait period between data packets. This doesn't mean that gib will be able to download faster than what your ISP permits.
+  - Breakpoint-resume: You don't have to worry about Internet getting cut or app getting closed while downloading. Gib will simply continue downloading from the previous byte
+  - MD5 checks: Your awesome dev must include a hash value for the download in the JSON. Gib will then automatically perform a MD5 hash check and verify the integrity of file (whether or not it got corrupted somehow)
+- *Convenient af lmao*
 - Advanced CI integration
 - Battery efficient wakelock
 - Tunables for every aspect (update check intervals and more)
@@ -24,16 +21,16 @@ A simple updater manager personal/small projects with advanced ci integration. T
 - Your own prefered hosting
 - Easy pushing of OTA (JSON can be updated this script)
 - Customisable page for your own work
-- Stable/ no downtimes because there is NO major hosting infrastructure implemented
+- Stable/no downtimes because there is NO major hosting infrastructure implemented
 
 # Home/Dashboard
 Allows sorting of files per device, file type and popularity
 Allow searching of devs
 
 # Customisation
-You need to gib some metadata on how you want things to be placed in your `update.json`. For instance, you would have to define your name, desc and url and **build number**. 
+You need to gib some metadata on how you want things to be placed in your `update.json`. For instance, you would have to define your name, desc and url and **build number**.
 ```json
-{ 
+{
 "build": 365,
 "name": "Pizza Kernel",
 "desc": "A simple kernel without all the junk features",
@@ -56,14 +53,14 @@ If you would like to overide, use `{ "type": types[1,2,3 or 4] }`
 
 Target refers to the DEVICE CODENAME
 
-if applicable to all devices, use `{ "target":generic }`
+If applicable to all devices, use `{ "target":generic }`
 
 More variables will be added in future, under the properties object in the json
 However, not all stuff are controlled by you. Update check intervals are defined by your users in settings so deal with it
 
 # Download
 ## Push out OTAs
-Okay, this is probably the part you wanna read. So basically, i was showering and thinking on a good method to allow the devs to push otas. I decided that, maybe just parse a json at intervals, from the same source. You dont even need to own a webserver, the json file can be hosted on your repo or just a gist will do, with the template. Just make sure your URL is **FINAL** and **you can make edits** to it. And don't be a retard, obviouly COPY THE RAW FILE LINK. For people who need some spoonfeeding, you can drop me a email on your query or just create a issue. 
+Okay, this is probably the part you wanna read. So basically, i was showering and thinking on a good method to allow the devs to push otas. I decided that, maybe just parse a json at intervals, from the same source. You dont even need to own a webserver, the json file can be hosted on your repo or just a gist will do, with the template. Just make sure your URL is **FINAL** and **you can make edits** to it. And don't be a retard, obviouly COPY THE RAW FILE LINK. For people who need some spoonfeeding, you can drop me a email on your query or just create a issue.
 
 Soz, the workflow works like dees:
 1. Just built a new (apk/zip/whatever_update_package) and uploaded onto (http://vulcan.droidthug.me/firmware/7.x-mido-firmware-230717.zip)
@@ -72,7 +69,7 @@ Soz, the workflow works like dees:
 4. State more stuff in json and save
 5. User's device checks for update. If build number previously was 364, and now the device finds that `$newVersion > 364`, then will automatically download and update. Just make sure your build number is not a string and is a data types like (float, int) and build number and your build number is not negative incremental. Any of such exceptions, you'll have to modify the code. But, try to keep the (displayed to user) build name a `String` and (displayed to internal update checker) build number a `int`, `double` or `float`
 
-For lazy ppl or those with CI builds, there will be a script to help you automatically generate the json. Just adapt the function from the script and execute it on every build, easy shit. 
+For lazy ppl or those with CI builds, there will be a script to help you automatically generate the json. Just adapt the function from the script and execute it on every build, easy shit.
 
 For those with webserver and a domain, you can do your own hosting yay, everything works the same
 
@@ -82,8 +79,8 @@ You will have to send a pull to the main repo, defining your update json locatio
 
 # Methods
 After retrieving the updated package using the async task, we shall now install.
-- Automated apk install *without prompt* (*.apk, root) 
-- Automated apk install *with prompt* (*.apk, no-root) 
+- Automated apk install *without prompt* (*.apk, root)
+- Automated apk install *with prompt* (*.apk, no-root)
 - Flash directly from the app, prompt to reboot (root, *.zip)
 - Reboot to recovery prompt (*.zip,*.img no-root)
 
@@ -104,12 +101,12 @@ simple enough
 ### Json stuff
 In JSON, values must be one of the following data types:
 
-- a string
-- a number
-- a JSON object
-- an array
-- a boolean
-- null
+- A string
+- A number
+- A JSON object
+- An array
+- A boolean
+- Null
 
 so yea make sure you dont give some invalid shit like a function or your json will fail parsing and no update will be recieved. Though, if things fail, a email will be sent for logging and crabs.
 
@@ -124,9 +121,9 @@ I might do "in app theming" but substratum does a good job.
 Unless no major themes support, i don't think ill implement
 
 ### Contributions
-Send a pull if you spot an issue,if possible, instead of just waiting for me to fix it. Make sure you indicate your pull before working on it in the "issues" tab, i don't wanna waste your time. 
+Send a pull if you spot an issue,if possible, instead of just waiting for me to fix it. Make sure you indicate your pull before working on it in the "issues" tab, i don't wanna waste your time.
 
-Soz anyways, you have any features/update_package type requests, feel free to voice them. Also, gib some feedback too xD 
+Soz anyways, you have any features/update_package type requests, feel free to voice them. Also, gib some feedback too xD
 
 ### Compilation
 If you would like to compile gib, go ahead, but you'll have to remove firebase dependencies or include your own google-services.json in the root of the /app folder
