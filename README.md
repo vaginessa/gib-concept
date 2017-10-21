@@ -1,7 +1,6 @@
 # Gib update(r)
 A simple updater manager personal/small projects with advanced CI integration. There won't be a need to messily push your CI/APK builds via Telegram anymore and gib installation convienience.
 
-[![Concept](https://github.com/alamo18/gib/blob/master/art/nude.jpg)](https://alamo18.github.io/gumball/)
 # Features
 ### User
 - Multi-thread download
